@@ -3,10 +3,11 @@ const neo4j = require('neo4j-driver');
 const cors = require('cors');
 const axios = require('axios');
 const app = express();
-
+require('dotenv').config();
 const uri = "neo4j+s://e1d65d21.databases.neo4j.io";
 const user = "neo4j";
-const password = "TWkImoBBhgftZiT2tM2Ld_i0RrM6B8O-5RwpYvzLq80";
+const password = process.env.NEO4J_PASSWORD;
+console.log(password);
 
 const driver = neo4j.driver(uri, neo4j.auth.basic(user, password));
 
